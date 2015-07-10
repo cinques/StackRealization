@@ -1,0 +1,6 @@
+C:\Users\Артем\Documents\GitHub\StackRealization\StackRealization\bin\Debug\StackRealization.exe.config
+C:\Users\Артем\Documents\GitHub\StackRealization\StackRealization\obj\Debug\StackRealization.csprojResolveAssemblyReference.cache
+C:\Users\Артем\Documents\GitHub\StackRealization\StackRealization\bin\Debug\StackRealization.exe
+C:\Users\Артем\Documents\GitHub\StackRealization\StackRealization\bin\Debug\StackRealization.pdb
+C:\Users\Артем\Documents\GitHub\StackRealization\StackRealization\obj\Debug\StackRealization.exe
+C:\Users\Артем\Documents\GitHub\StackRealization\StackRealization\obj\Debug\StackRealization.pdb
