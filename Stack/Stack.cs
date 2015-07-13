@@ -50,11 +50,11 @@ namespace Stack
 
         #region ICollection
 
-        object ICollection.SyncRoot { get { return this; } }
+        public object SyncRoot { get { return this; } }
 
-        bool ICollection.IsSynchronized { get { return false; } }
+        public bool IsSynchronized { get { return false; } }
 
-        void ICollection.CopyTo(Array array, int index)
+        public void CopyTo(Array array, int index)
         {
             try
             {

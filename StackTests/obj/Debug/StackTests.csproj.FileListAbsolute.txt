@@ -1,0 +1,7 @@
+C:\Users\Артем\Documents\GitHub\StackRealization\StackTests\bin\Debug\StackTests.dll
+C:\Users\Артем\Documents\GitHub\StackRealization\StackTests\bin\Debug\StackTests.pdb
+C:\Users\Артем\Documents\GitHub\StackRealization\StackTests\bin\Debug\Stack.dll
+C:\Users\Артем\Documents\GitHub\StackRealization\StackTests\bin\Debug\Stack.pdb
+C:\Users\Артем\Documents\GitHub\StackRealization\StackTests\obj\Debug\StackTests.csprojResolveAssemblyReference.cache
+C:\Users\Артем\Documents\GitHub\StackRealization\StackTests\obj\Debug\StackTests.dll
+C:\Users\Артем\Documents\GitHub\StackRealization\StackTests\obj\Debug\StackTests.pdb
