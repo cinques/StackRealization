@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 
-namespace StackRealization
+namespace Stack
 {
     public class Stack<T> : IEnumerable<T>, IEnumerable, ICollection
     {
@@ -27,7 +25,7 @@ namespace StackRealization
         public void Push(T item)
         {
             if (_top + 1 == _array.Length)
-                Array.Resize(ref _array, _array.Length == 0 ? DefaultSize : _array.Length*2);
+                Array.Resize(ref _array, _array.Length == 0 ? DefaultSize : _array.Length * 2);
             _array[++_top] = item;
         }
 
@@ -130,4 +128,5 @@ namespace StackRealization
 
         #endregion
     }
+
 }

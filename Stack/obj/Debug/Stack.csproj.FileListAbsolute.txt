@@ -1,0 +1,4 @@
+C:\Users\Артем\Documents\GitHub\StackRealization\Stack\bin\Debug\Stack.dll
+C:\Users\Артем\Documents\GitHub\StackRealization\Stack\bin\Debug\Stack.pdb
+C:\Users\Артем\Documents\GitHub\StackRealization\Stack\obj\Debug\Stack.dll
+C:\Users\Артем\Documents\GitHub\StackRealization\Stack\obj\Debug\Stack.pdb
