@@ -6,15 +6,15 @@ namespace StackRealization
     {
         static void Main(string[] args)
         {
-            Stack stack = new Stack();
+            Stack<int> stack = new Stack<int>();
+            stack.Push(1);
             stack.Push(2);
-            stack.Push(44);
             stack.Push(3);
-            stack.Push(12);
-            Console.WriteLine(stack);
 
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Count);
+            foreach (var e in stack)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }
