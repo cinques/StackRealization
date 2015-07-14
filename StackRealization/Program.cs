@@ -3,6 +3,9 @@ using Stack;
 
 namespace StackRealization
 {
+    /// <summary>
+    /// Entry point.
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

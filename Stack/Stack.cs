@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Stack
 {
+    /// <summary>
+    /// Realization of the stack.
+    /// </summary>
     public class Stack<T> : IEnumerable<T>, ICollection
     {
         /// <summary>
