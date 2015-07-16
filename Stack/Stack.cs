@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Stack
 {
-    public class Stack<T> : IEnumerable<T>, ICollection
+    public class Stack<T> : IEnumerable<T>, ICollection, IStack<T>
     {
         private const int InitialCapacity = 4;
         private T[] _items;
