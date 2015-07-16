@@ -5,57 +5,31 @@ using System.Linq;
 
 namespace Stack
 {
-    /// <summary>
-    /// Realization of the stack.
-    /// </summary>
     public class Stack<T> : IEnumerable<T>, ICollection
     {
-        /// <summary>
-        /// Initial capacity of the stack.
-        /// </summary>
         private const int InitialCapacity = 4;
-        /// <summary>
-        /// Storage for stack elements.
-        /// </summary>
-        private T[] _array;
-        /// <summary>
-        /// Top of the stack.
-        /// </summary>
-        private int _top;
+        private T[] _items;
+        private int _size;
 
-        /// <summary>
-        /// Number of elements in the stack.
-        /// </summary>
         public int Count
         {
-            get { return _top + 1; }
+            get { return _size + 1; }
         }
 
-        /// <summary>
-        /// Create an empty stack.
-        /// </summary>
         public Stack()
         {
-            _array = new T[0];
-            _top = -1;
+            _items = new T[0];
+            _size = -1;
         }
 
-        /// <summary>
-        /// Create a stack with your own specific capacity.
-        /// </summary>
-        /// <param name="capacity">Specific capacity</param>
         public Stack(int capacity)
         {
             if (capacity < 0)
                 throw new ArgumentOutOfRangeException();
-            _array = new T[capacity];
-            _top = -1;
+            _items = new T[capacity];
+            _size = -1;
         }
 
-        /// <summary>
-        /// Create a stack copied from another collection.
-        /// </summary>
-        /// <param name="collection">Another collection to copy.</param>
         public Stack(IEnumerable<T> collection)
         {
             if (collection == null)
@@ -65,86 +39,61 @@ namespace Stack
 
             if (c == null)
             {
-                _array = new T[InitialCapacity];
-                _top = -1;
+                _items = new T[InitialCapacity];
+                _size = -1;
 
                 foreach (var e in collection)
                     Push(e);
             }
             else
             {
-                _array = new T[c.Count];
-                _top = c.Count - 1;
-                c.CopyTo(_array, 0);
+                _items = new T[c.Count];
+                _size = c.Count - 1;
+                c.CopyTo(_items, 0);
             }
         }
 
-        /// <summary>
-        /// Pushes an item to the top of the stack.
-        /// </summary>
-        /// <param name="item">Item to push.</param>
         public void Push(T item)
         {
-            if (_top + 1 == _array.Length)
-                Array.Resize(ref _array, _array.Length == 0 ? InitialCapacity : _array.Length * 2);
-            _array[++_top] = item;
+            if (_size + 1 == _items.Length)
+                Array.Resize(ref _items, _items.Length == 0 ? InitialCapacity : _items.Length * 2);
+            _items[++_size] = item;
         }
 
-        /// <summary>
-        /// Pops an item from the top of the stack.
-        /// </summary>
-        /// <returns>Popped item.</returns>
         public T Pop()
         {
-            if (_top == -1)
+            if (_size == -1)
                 throw new InvalidOperationException();
-            T popped = _array[_top];
-            _array[_top--] = default(T);
+            T popped = _items[_size];
+            _items[_size--] = default(T);
             return popped;
         }
 
-        /// <summary>
-        /// Sees item on the top of the stack without removing it.
-        /// </summary>
-        /// <returns>Item on the top.</returns>
         public T Peek()
         {
-            if (_top == -1)
+            if (_size == -1)
                 throw new InvalidOperationException();
-            return _array[_top];
+            return _items[_size];
         }
 
-        /// <summary>
-        /// Romoves all items of the stack.
-        /// </summary>
         public void Clear()
         {
-            Array.Clear(_array, 0, _top + 1);
-            _top = -1;
+            Array.Clear(_items, 0, _size + 1);
+            _size = -1;
         }
 
-        /// <summary>
-        /// Checks that the stack contains specified item.
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         public bool Contains(T item)
         {
-            return _array.Contains(item);
+            return _items.Contains(item);
         }
 
-        /// <summary>
-        /// Compress the size of the stack.
-        /// </summary>
         public void TrimeExcess()
         {
-            int newSize = (int)(_array.Length*0.9);
-            if (_top + 1 < newSize)
-                Array.Resize(ref _array, newSize);
+            int newSize = (int)(_items.Length*0.9);
+            if (_size + 1 < newSize)
+                Array.Resize(ref _items, newSize);
         }
 
-
-        #region ICollection
 
         public object SyncRoot { get { return this; } }
 
@@ -158,18 +107,14 @@ namespace Stack
                 throw new ArgumentOutOfRangeException();
             try 
             {
-                _array.CopyTo(array, index);
-                Array.Reverse(array, index, _top);
+                _items.CopyTo(array, index);
+                Array.Reverse(array, index, _size);
             }
             catch (ArrayTypeMismatchException)
             {
                 throw new ArgumentException();
             }
         }
-
-        #endregion
-
-        #region IEnumerable
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
@@ -195,7 +140,7 @@ namespace Stack
             public bool MoveNext()
             {
                 if (_index == -2)
-                    _index = _stack._top + 1;
+                    _index = _stack._size + 1;
 
                 return --_index != -1;
             }
@@ -206,7 +151,7 @@ namespace Stack
                 {
                     if (_index < 0)
                         throw new InvalidOperationException();
-                    return _stack._array[_index];
+                    return _stack._items[_index];
                 }
             }
 
@@ -225,8 +170,6 @@ namespace Stack
                 _index = -1;
             }
         }
-
-        #endregion
     }
 
 }

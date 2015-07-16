@@ -5,11 +5,8 @@ using Stack;
 
 namespace StackTests
 {
-    /// <summary>
-    /// Unit tests for Stack class.
-    /// </summary>
     [TestClass]
-    public class StackUnitTest1
+    public class StackUnitTest
     {
         [TestMethod]
         public void TestConstructors()
