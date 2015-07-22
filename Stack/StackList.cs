@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Stack
@@ -60,6 +61,21 @@ namespace Stack
         {
             _top = null;
             Count = 0;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            StackListItem<T> current = _top;
+            while (current != null)
+            {
+                yield return current.Value;
+                current = current.Next;
+            }
+
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

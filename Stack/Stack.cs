@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Stack
 {
-    public class Stack<T> : IEnumerable<T>, ICollection, IStack<T>
+    public class Stack<T> : IStack<T>, ICollection
     {
         private const int InitialCapacity = 4;
         private T[] _items;
@@ -85,13 +85,6 @@ namespace Stack
         public bool Contains(T item)
         {
             return _items.Contains(item);
-        }
-
-        public void TrimeExcess()
-        {
-            int newSize = (int)(_items.Length*0.9);
-            if (_size < newSize)
-                Array.Resize(ref _items, newSize);
         }
 
         public object SyncRoot { get { return this; } }
